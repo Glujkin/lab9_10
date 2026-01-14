@@ -1,15 +1,20 @@
+import modules.EnergyGenerator
+import modules.ResearchLab
+import resourses.OutpostResource
+import resourses.ResouceManager
+
 fun main(){
-//    val manager = ResouceManager()
-//    val minerals = OutpostResource(1,"Minerals",300)
-//    val gas = OutpostResource(2,"Gas",100)
+//    val manager = resourses.ResouceManager()
+//    val minerals = resourses.OutpostResource(1,"Minerals",300)
+//    val gas = resourses.OutpostResource(2,"Gas",100)
 //    manager.add(minerals)
 //    manager.add(gas)
 //    manager.printAll()
 //    val bonus = minerals.copy(amount = minerals.amount + 50)
 //    println("Копия минералов с бонусом: $bonus")
     val manager = ResouceManager()
-    manager.add(OutpostResource(1,"Minerials",120))
-    manager.add(OutpostResource(2,"Gas",40))
+    manager.add(OutpostResource(1, "Minerials", 120))
+    manager.add(OutpostResource(2, "Gas", 40))
     val generator = EnergyGenerator()
     val lab = ResearchLab()
     generator.performAction(manager)

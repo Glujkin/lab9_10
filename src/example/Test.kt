@@ -1,3 +1,5 @@
+package example
+
 var age: Int = 18
     set(value) {
         if ((value > 0) and (value < 110))
@@ -41,11 +43,11 @@ class Rechangle(val width: Float,val height: Float) : Figure(){
     }
 }
 fun main() {
-//    println(age)
-//    age = 45
-//    println(age)
-//    age = -345
-//    println(age)
+//    println(example.age)
+//    example.age = 45
+//    println(example.age)
+//    example.age = -345
+//    println(example.age)
     val sword = Item(1,"Sword",1)
     val betterSword = sword.copy(quantity = 2)
     println(sword.toString())
@@ -56,5 +58,5 @@ fun main() {
     val maksim: Human = Person("Maksim",25)
     denis.hello()
     maksim.hello()
-//    val pavel: Human = Human("Pavel")
+//    val pavel: example.Human = example.Human("Pavel")
 }

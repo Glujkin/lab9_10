@@ -1,3 +1,7 @@
+package modules
+
+import resourses.ResouceManager
+
 class ResearchLab: OutpustModule("Иследовательская лаборотория") {
     override fun performAction(manager: ResouceManager) {
         val minerals = manager.get("Minerals")

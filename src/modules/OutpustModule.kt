@@ -1,3 +1,7 @@
+package modules
+
+import resourses.ResouceManager
+
 abstract class OutpustModule(
     val name: String,
     var level: Int = 1

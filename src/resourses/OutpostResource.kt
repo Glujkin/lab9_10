@@ -1,5 +1,4 @@
-import jdk.jfr.DataAmount
-import kotlin.math.min
+package resourses
 
 data class OutpostResource(
     val id: Int,

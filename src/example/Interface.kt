@@ -1,3 +1,5 @@
+package example
+
 interface Movable{
     var speed: Int
     val model: String
@@ -64,8 +66,8 @@ fun main() {
 //    aircraft.move()
     travel(car)
     car.stop()
-//    travel(aircraft)
-//    val pavel = WorkingStudent("Pavel")
+//    example.travel(aircraft)
+//    val pavel = example.WorkingStudent("Pavel")
 //    pavel.work()
 //    pavel.study()
     aircraft.move()
