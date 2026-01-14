@@ -16,3 +16,101 @@ git clone <URL_репозитория>
 [Пономаренко, Шишкин]
 ## Лицензия
 Проект создан в учебных целях.
+## Геттеры и сеттеры
+Геттеры и сеттеры — механизмы контроля доступа к свойствам класса.
+
+Пример
+```
+class Hero(val name: String) {
+var health: Int = 100
+set(value) {
+field = value.coerceIn(0,100)
+}
+
+var stamina: Int = 50
+get() = field + 10
+```
+## Инкапсуляция
+Сокрытие деталей реализации и предоставление контролируемого доступа.
+```
+Основные механизмы
+. Модификаторы доступа (private, protected, internal, public)
+. Кастомные геттеры/сеттеры
+. Делегирование свойств
+```
+
+## Data-классы
+Cпециальный тип классов для хранения данных.
+```
+Особенности:
+. Автоматически генерируют toString(), equals(), hashCode(), copy()
+. Должны иметь хотя бы один параметр в конструкторе
+. Не могут быть унаследованы
+```
+Примеры:
+```
+data class OutpostResource(
+val id: Int,
+val name: String,
+var amount: Int
+){
+override fun toString(): String {
+return "Ваш ресурс: $id | Имя:$name | Количество:$amount"
+}
+}
+```
+## Абстрактные классы
+базовые классы с частичной реализацией.
+```
+Особенности:
+
+. Могут содержать абстрактные методы
+. Не могут быть инстанцированы напрямую
+. Служат основой для иерархии классов
+```
+Примеры
+```
+abstract class OutpustModule(
+    val name: String,
+    var level: Int = 1
+) {
+    fun upgrade(){
+        level++
+        println("$name улучшен до уровня $level")
+    }
+    abstract fun performAction(manager: ResouceManager)
+}
+```
+
+## Интерфейсы
+Это контракт поведения
+```
+Содержит:
+. функции без реализации;
+. функции с defeult-реализацией;
+. свойства без хранения (только делкарации
+```
+Пример 
+
+Определяем интерфейс видео плеера:
+```
+interface VideoPlayble{
+    fun play() = println("Play video")
+}
+```
+Определяем интерфейс аудио плеера:
+```
+interface VideoPlayble{
+    fun play() = println("Play audio")
+}
+```
+Далее создадим класс, который будет реализовывать оба интерфейса, и в нем переопределим метод для обоих интерфейсов
+```
+class MediaPlayer : VideoPlayble, AudioPlayable{
+    override fun play(){
+        println("Start playing")
+        super<VideoPlayble>.play()
+        super<AudioPlayable>.play()
+    }
+}
+```
