@@ -1,8 +1,22 @@
 import modules.EnergyGenerator
+import modules.ModuleResult
 import modules.ResearchLab
 import resourses.OutpostResource
 import resourses.ResouceManager
 
+fun handleModuleResult(result: ModuleResult) {
+    when (result) {
+        is ModuleResult.Success ->
+            println("Успех: ${result.message}")
+        is ModuleResult.ResourceProduced ->
+            println("Произведено: ${result.resourceName} + ${result.amount}")
+        is ModuleResult.NotEnoungResources ->
+            println("Недостаточно ресурса ${result.resourceName}. " + "Нужно ${result.required}, есть ${result.availabele}")
+    is ModuleResult.Error ->
+        println("Ошибка: ${result.reason}")
+    }
+
+}
 fun main(){
 //    val manager = resourses.ResouceManager()
 //    val minerals = resourses.OutpostResource(1,"Minerals",300)
@@ -21,4 +35,8 @@ fun main(){
     lab.performAction(manager)
     println()
     manager.printAll()
+    val generatorResult = generator.performAction(manager)
+    val labResult = lab.performAction(manager)
+    handleModuleResult(generatorResult)
+    handleModuleResult(labResult)
 }

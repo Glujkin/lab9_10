@@ -10,5 +10,5 @@ abstract class OutpustModule(
         level++
         println("$name улучшен до уровня $level")
     }
-    abstract fun performAction(manager: ResouceManager)
+    abstract fun performAction(manager: ResouceManager) : ModuleResult
 }
